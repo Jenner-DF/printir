@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="module" src="./js/script.js"></script>
+
+    <title>PUPrinter</title>
+  </head>
+  <body>
+    <!-- <div id="firebaseui-auth-container"></div> -->
+    <!-- LOGIN FORM -->
+    <form class="login">
+      <label for="email">Username: </label>
+      <input type="email" name="email" required />
+      <label for="password">Password: </label>
+      <input type="password" name="password" required />
+      <button class="login">Login</button>
+    </form>
+    <button class="logout">Signout</button>
+    <button class="auth">check auth</button>
+    <button class="openDB">open DB</button>
+    <br /><br />
+
+    <!-- PRINT FORM -->
+    <form class="add">
+      <!-- file/document -->
+      <label for="file">Upload File: </label>
+      <input type="file" name="file" id="file" class="file" multiple required />
+      <!-- colored -->
+      <p>Document color:</p>
+      <input
+        type="radio"
+        id="colored"
+        name="colored"
+        value="colored"
+        required
+      />
+      <label for="colored">Colored</label>
+      <input type="radio" id="bw" name="colored" value="bw" required />
+      <label for="bw">Black/White</label><br /><br />
+      <!-- price -->
+      <label for="price">Price:</label>
+      <input type="number" name="price" required value="3" disabled />
+      <br /><br />
+      <!--  -->
+      <button>Print</button>
+    </form>
+    <form class="delete">
+      <label for="id">Document ID:</label>
+      <input type="text" name="id" required />
+      <button>delete print form</button>
+    </form>
+    <div class="printForms">
+      <div>
+        <p>Document ID:</p>
+        <p>user ID:</p>
+        <p>colored:</p>
+        <p>file url:</p>
+        <p>pin code:</p>
+        <p>price:</p>
+        <p>date created:</p>
+      </div>
+    </div>
+  </body>
+</html>
