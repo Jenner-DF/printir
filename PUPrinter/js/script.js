@@ -43,6 +43,31 @@ async function updateUserDB(user) {
     { merge: true }
   );
 }
+//sign up
+const signupForm = document.querySelector(".signup");
+signupForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = signupForm.email.value;
+  const password = signupForm.password.value;
+  signup(email, password);
+  console.log();
+});
+async function signup(email, password) {
+  try {
+    const credential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const userdata = credential.user;
+    updateUserDB(userdata);
+    signupForm.reset();
+
+    console.log(userdata);
+  } catch (e) {
+    alert(e);
+  }
+}
 //login
 const loginForm = document.querySelector(".login");
 loginForm.addEventListener("submit", (e) => {
@@ -56,7 +81,7 @@ async function signIn(email, password) {
   try {
     const credential = await signInWithEmailAndPassword(auth, email, password);
     const userdata = credential.user;
-    updateUserDB(userdata);
+    loginForm.reset();
     console.log(userdata);
   } catch (e) {
     alert(e);
