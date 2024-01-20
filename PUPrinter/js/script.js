@@ -125,7 +125,7 @@ const generatePinCode = async () => {
   const pincode = String(snapshot.size + 1).padStart(4, "0");
   return pincode;
 };
-//generate fileURL
+//generate fileURL and store in firestorage
 const myfile = document.querySelector(".file");
 const generateFileURL = async () => {
   const file = myfile.files[0];
@@ -170,7 +170,7 @@ async function getprintformsdata() {
     <p>file url: ${doc.data().fileURL}</p>
     <p>pin code: ${doc.data().pinCode}</p>
     <p>price: ${doc.data().price}</p>
-    <p>date created: ${doc.data().timestamp}</p>
+    <p>date created: ${new Date(doc.data().timestamp.seconds * 1000)}</p>
   </div>`
     )
     .join("");
